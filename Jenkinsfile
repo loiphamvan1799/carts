@@ -7,25 +7,24 @@ pipeline{
     }    
 
     stages{
-        stage('one'){
+        stage('build'){
             steps{
                 echo 'this is the first job'
                 sh 'mvn compile '
                 sleep 4
             }
         }
-        stage('two'){
+        stage('test'){
             steps{
                 echo 'this is the second job'
                 sh 'mvn clean test'
                 sleep 9
             }
         }
-        stage('three'){
+        stage('package'){
             steps{
                 echo 'this is the third job'
                 sh 'mvn package -DskipTests'
-                sleep 7
             }
         }
     }
